@@ -18,7 +18,7 @@ const Footer = () => {
 
         </div>
         <div className="developer">
-          <Link to={gitHubTeamLinks.jacqeulinePasaoa.github}>Jacqueline's Github</Link>
+          <Link to={gitHubTeamLinks.jacquelinePasaoa.github}>Jacqueline's Github</Link>
         </div>
       </div>
     </div>
