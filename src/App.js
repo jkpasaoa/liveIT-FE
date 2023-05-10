@@ -5,7 +5,8 @@ import Home from "./Pages/Home";
 import Error from "./Pages/Error";
 
 //COMPONENTS
-import NavBar from "./Components/NavBar"
+import NavBar from "./Components/NavBar";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -18,9 +19,10 @@ function App() {
             <Route path="*" element={<Error />} />
           </Routes>
         </main>
-      </Router>
+      <Footer />
+    </Router>
 
-    </div>
+    </div >
   );
 }
 
