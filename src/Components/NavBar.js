@@ -1,30 +1,23 @@
 import { Link } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navbar, Nav } from 'react-bootstrap';
 
 function NavBar() {
   return (
     <header>
-      <nav className="navbar">
+      <Navbar bg="light" expand="lg">
         <div className="logo">
-          <span>Live It</span>
+          <Navbar.Brand href="/">Live It</Navbar.Brand>
         </div>
-        <ul className="nav-links">
-          <li>
-            <Link to="/">
-              <span>Home</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/about">
-              <span>About</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/snacks">
-              <span>Snacks</span>
-            </Link>
-          </li>
-        </ul>
-      </nav>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/snacks">Snacks</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
     </header>
   );
 }
