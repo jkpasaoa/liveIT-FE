@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Snack from "./Snack";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -25,6 +25,14 @@ function Snacks() {
   const tableHeaderStyle = {
     background: "#77BE5E",
     color: "white",
+    textAlign: "center",
+    fontFamily: "Funk Gibson",
+  };
+
+  const buttonStyle = {
+    backgroundColor: "#6FBF73",
+    color: "white",
+    fontFamily: "Funk Gibson",
   };
 
   return (
@@ -33,9 +41,11 @@ function Snacks() {
         <Table style={tableStyle} responsive>
           <thead>
             <tr>
-              <th></th>
-              <th style={tableHeaderStyle}>Take Me to the Snacks!</th>
-              <th style={tableHeaderStyle}>See this Snack!</th>
+              <th colSpan="2" style={tableHeaderStyle}>
+                <Button variant="success" style={buttonStyle}>
+                  Take Me to the Snacks!
+                </Button>
+              </th>
             </tr>
           </thead>
           <tbody>

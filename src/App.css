@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Victor Mono', monospace;
 }
 
 .App-logo {
@@ -22,10 +23,12 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family: 'Victor Mono', monospace;
 }
 
 .App-link {
   color: #61dafb;
+  font-family: 'Victor Mono', monospace;
 }
 
 @keyframes App-logo-spin {

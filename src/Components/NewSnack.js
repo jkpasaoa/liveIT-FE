@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -22,15 +23,13 @@ function NewSnack() {
     }
   };
 
-
   const [snack, setsnack] = useState({
-    "name": "",
-    "calorie": "",
-    "sugar": "",
-    "fat": "",
-    "is_healthy": false
+    name: "",
+    calorie: "",
+    sugar: "",
+    fat: "",
+    is_healthy: false,
   });
-
 
   const handleTextChange = (event) => {
     setsnack({ ...snack, [event.target.id]: event.target.value });
@@ -43,64 +42,72 @@ function NewSnack() {
   const handleSubmit = (event) => {
     event.preventDefault();
     addSnack({
-      "name": snack.name,
-      "calorie": snack.calorie,
-      "sugar": snack.sugar,
-      "fat": snack.fat,
-      "is_healthy": snack.is_healthy
+      name: snack.name,
+      calorie: snack.calorie,
+      sugar: snack.sugar,
+      fat: snack.fat,
+      is_healthy: snack.is_healthy,
     });
   };
 
   return (
     <div className="New">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Title:</label>
-        <input
-          id="name"
-          value={snack.name}
-          type="text"
-          onChange={handleTextChange}
-          placeholder="snack Title"
-          required
-        />
-        <label htmlFor="calorie">calorie:</label>
-        <input
-          id="calorie"
-          type="text"
-          required
-          value={snack.calorie}
-          placeholder="calorie Name"
-          onChange={handleTextChange}
-        />
-        <label htmlFor="sugar">Album:</label>
-        <input
-          id="sugar"
-          type="text"
-          name="sugar"
-          value={snack.sugar}
-          placeholder="Album Name"
-          onChange={handleTextChange}
-        />
-        <label htmlFor="fat">Time:</label>
-        <input
-          id="fat"
-          type="text"
-          name="fat"
-          value={snack.fat}
-          placeholder="snack Duration"
-          onChange={handleTextChange}
-        />
-        <label htmlFor="is_healthy">Favorite:</label>
-        <input
-          id="is_healthy"
-          type="checkbox"
-          onChange={handleCheckboxChange}
-          checked={snack.is_healthy}
-        />
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="name">
+          <Form.Label>Title:</Form.Label>
+          <Form.Control
+            type="text"
+            value={snack.name}
+            placeholder="snack Title"
+            onChange={handleTextChange}
+            required
+          />
+        </Form.Group>
 
-        <br />
-        <input type="submit" />
-      </form>
+        <Form.Group controlId="calorie">
+          <Form.Label>calorie:</Form.Label>
+          <Form.Control
+            type="text"
+            value={snack.calorie}
+            placeholder="calorie Name"
+            onChange={handleTextChange}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="sugar">
+          <Form.Label>Album:</Form.Label>
+          <Form.Control
+            type="text"
+            value={snack.sugar}
+            placeholder="Album Name"
+            onChange={handleTextChange}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="fat">
+          <Form.Label>Time:</Form.Label>
+          <Form.Control
+            type="text"
+            value={snack.fat}
+            placeholder="snack Duration"
+            onChange={handleTextChange}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="is_healthy">
+          <Form.Check
+            type="checkbox"
+            label="Favorite"
+            checked={snack.is_healthy}
+            onChange={handleCheckboxChange}
+          />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
     </div>
   );
 }
