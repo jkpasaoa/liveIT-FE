@@ -1,17 +1,3 @@
-// import { Link } from "react-router-dom";
-
-// function NewSnack() {
-
-//   return (
-//     <div>
-
-//     </div>
-//   );
-// }
-
-// export default NewSnack;
-
-
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -21,105 +7,95 @@ const API = process.env.REACT_APP_API_URL;
 function NewSnack() {
   const navigate = useNavigate();
 
-  const addSong = async (newSong) => {
+  const addSnack = async (newSnack) => {
     try {
-      const response = await axios.post(`${API}/songs`, newSong);
+      const response = await axios.post(`${API}/snacks`, newSnack);
       if (response.data) {
         console.log(response.data);
-        navigate(`/songs`);
+        navigate(`/snacks`);
       } else {
-        throw new Error("Error adding song");
+        throw new Error("Error adding snack");
       }
     } catch (error) {
       console.error(error);
-      alert("Error adding song");
+      alert("Error adding snack");
     }
   };
 
 
-  const [song, setSong] = useState({
-    "title": "",
-    "artist": "",
-    "album": "",
-    "time": "",
-    "genre": "",
-    "is_favorite": false
+  const [snack, setsnack] = useState({
+    "name": "",
+    "calorie": "",
+    "sugar": "",
+    "fat": "",
+    "is_healthy": false
   });
 
+
   const handleTextChange = (event) => {
-    setSong({ ...song, [event.target.id]: event.target.value });
+    setsnack({ ...snack, [event.target.id]: event.target.value });
   };
 
   const handleCheckboxChange = () => {
-    setSong({ ...song, is_favorite: !song.is_favorite });
+    setsnack({ ...snack, is_healthy: !snack.is_healthy });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addSong({
-      "title": song.title,
-      "artist": song.artist,
-      "album": song.album,
-      "time": song.time,
-      "genre": song.genre,
-      "is_favorite": song.is_favorite
+    addSnack({
+      "name": snack.name,
+      "calorie": snack.calorie,
+      "sugar": snack.sugar,
+      "fat": snack.fat,
+      "is_healthy": snack.is_healthy
     });
   };
 
   return (
     <div className="New">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Title:</label>
+        <label htmlFor="name">Title:</label>
         <input
-          id="title"
-          value={song.title}
+          id="name"
+          value={snack.name}
           type="text"
           onChange={handleTextChange}
-          placeholder="Song Title"
+          placeholder="snack Title"
           required
         />
-        <label htmlFor="artist">Artist:</label>
+        <label htmlFor="calorie">calorie:</label>
         <input
-          id="artist"
+          id="calorie"
           type="text"
           required
-          value={song.artist}
-          placeholder="Artist Name"
+          value={snack.calorie}
+          placeholder="calorie Name"
           onChange={handleTextChange}
         />
-        <label htmlFor="album">Album:</label>
+        <label htmlFor="sugar">Album:</label>
         <input
-          id="album"
+          id="sugar"
           type="text"
-          name="album"
-          value={song.album}
+          name="sugar"
+          value={snack.sugar}
           placeholder="Album Name"
           onChange={handleTextChange}
         />
-        <label htmlFor="time">Time:</label>
+        <label htmlFor="fat">Time:</label>
         <input
-          id="time"
+          id="fat"
           type="text"
-          name="time"
-          value={song.time}
-          placeholder="Song Duration"
+          name="fat"
+          value={snack.fat}
+          placeholder="snack Duration"
           onChange={handleTextChange}
         />
-        <label htmlFor="genre">Genre:</label>
+        <label htmlFor="is_healthy">Favorite:</label>
         <input
-          id="genre"
-          type="text"
-          name="genre"
-          value={song.genre}
-          placeholder="Song Genre"
-          onChange={handleTextChange}
-        />
-        <label htmlFor="is_favorite">Favorite:</label>
-        <input
-          id="is_favorite"
+          id="is_healthy"
           type="checkbox"
           onChange={handleCheckboxChange}
-          checked={song.is_favorite}
+          checked={snack.is_healthy}
         />
 
         <br />

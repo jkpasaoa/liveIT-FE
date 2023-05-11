@@ -7,22 +7,25 @@ const Footer = () => {
       github: "https://github.com/theCephusHasLanded",
     },
     jacquelinePasaoa: {
-      github: "https://github.com/jkpasaoa"
-    }
+      github: "https://github.com/jkpasaoa",
+    },
   };
   return (
     <div className="footer">
       <div className="developers">
         <div className="developer">
-          <Link to={gitHubTeamLinks.christinaCephus.github}>Christina's Github</Link>
-
+          <Link to={gitHubTeamLinks.christinaCephus.github}>
+            Christina's Github
+          </Link>
         </div>
         <div className="developer">
-          <Link to={gitHubTeamLinks.jacquelinePasaoa.github}>Jacqueline's Github</Link>
+          <Link to={gitHubTeamLinks.jacquelinePasaoa.github}>
+            Jacqueline's Github
+          </Link>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Footer;

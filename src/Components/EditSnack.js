@@ -29,13 +29,6 @@ function EditSnack() {
     is_healthy: false,
   });
 
-  // id SERIAL PRIMARY KEY,
-  // name TEXT NOT NULL,
-  // calorie TEXT,
-  // sugar TEXT,
-  // fat TEXT,
-  // is_healthy BOOLEAN
-
   const updateSnack = (updatedSnack) => {
     axios
       .put(`${API}/snacks/${id}`, updatedSnack)
@@ -67,7 +60,7 @@ function EditSnack() {
     event.preventDefault();
     updateSnack(snack, id);
   };
-  
+
   return (
     <div className="Edit">
       <form onSubmit={handleSubmit}>

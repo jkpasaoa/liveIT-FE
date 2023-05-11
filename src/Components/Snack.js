@@ -1,11 +1,28 @@
 import { Link } from "react-router-dom";
 
-function Snack() {
 
+function Snack({ snack }) {
+  console.log(snack.id)
   return (
-    <div>
+    <tr>
+      <td>
+        {snack.is_healthy ? (
+          <span>🥗</span>
+        ) : (
+          <span>&nbsp; &nbsp; &nbsp;</span>
+        )}
+      </td>
 
-    </div>
+      <td>
+        <a href={snack.url} target="_blank" rel="noreferrer">
+          {snack.name}
+        </a>
+      </td>
+
+      <td>
+        <Link to={`/snacks/${snack.id}`}>🥐</Link>
+      </td>
+    </tr>
   );
 }
 
