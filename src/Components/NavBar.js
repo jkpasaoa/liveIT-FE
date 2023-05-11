@@ -18,9 +18,11 @@ function NavBar() {
               <span>About</span>
             </Link>
           </li>
-          {/* <h1>
-        <Link to="/">Snacks</Link>
-      </h1> */}
+          <li>
+            <Link to="/snacks">
+              <span>Snacks</span>
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
