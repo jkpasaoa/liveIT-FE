@@ -43,6 +43,20 @@ function Reviews() {
       .catch((c) => console.warn("catch", c))
   }
 
+  const handleEdit = (updatedReview) => {
+    axios
+      .put(`${API}/snacks/${id}/reviews/${updatedReview.id}`, updatedReview)
+      .then((response) => {
+        const copyReviewArray = [...reviews];
+        const indexUpdatedReview = copyReviewArray.findIndex((review) => {
+          return review.id === id;
+        })
+        copyReviewArray[indexUpdatedReview] = response.data;
+        setReviews(copyReviewArray)
+      })
+      .catch((c) => console.warn("catch", c))
+  }
+
   return (
     <div>
       <section className="Reviews">
@@ -54,13 +68,14 @@ function Reviews() {
         {
           reviews.map((review) => {
             return <Review key={review.id}
-            review={review}
+              review={review}
               handleDelete={handleDelete}
-              />
+            />
           })
         }
       </section>
     </div>
   );
 }
+
 export default Reviews;
