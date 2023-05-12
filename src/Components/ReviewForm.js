@@ -6,6 +6,11 @@ function ReviewForm(props) {
   const { reviewDetails } = props;
 
   const [review, setReview] = useState({
+    reviewer: "",
+    title: "",
+    content: "",
+    rating: "",
+    snack_id: id
   })
 
   return (
