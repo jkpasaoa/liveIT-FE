@@ -18,9 +18,48 @@ function Reviews() {
       .catch((error) => console.warn(error))
   }, [id])
 
+  const handleAdd = (newReview) => {
+    axios
+      .post(`${API}/snacks/${id}/reviews`, newReview)
+      .then((response) => {
+        setReviews([response.data, ...reviews]);
+      }, (error) => console.error(error))
+      .catch((e) => console.warn("catch", e))
+  }
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`${API}/snacks/${id}/reviews/${id}`)
+      .then((response) => {
+        const copyReviewArray = [...reviews];
+        const indexDeletedReview = copyReviewArray.findIndex((review) => {
+          return review.id === id;
+        })
+        copyReviewArray.splice(indexDeletedReview, 1);
+        setReviews(copyReviewArray);
+      },
+        (error) => console.error(error)
+      )
+      .catch((c) => console.warn("catch", c))
+  }
+
   return (
     <div>
+      <section className="Reviews">
+        <h4>Reviews</h4>
+        <ReviewForm handleAdd={handleAdd}>
+          <h5>Add a New Review</h5>
+        </ReviewForm>
 
+        {
+          reviews.map((review) => {
+            return <Review key={review.id}
+            review={review}
+              handleDelete={handleDelete}
+              />
+          })
+        }
+      </section>
     </div>
   );
 }
