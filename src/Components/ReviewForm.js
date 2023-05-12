@@ -39,7 +39,7 @@ function ReviewForm(props) {
   }
 
   return (
-    <div className="Edit">
+    <div className="Edit" style={{ maxWidth: '500px', margin: '0 auto', paddingTop: '50px' }}>
       {props.children}
       <form onSubmit={handleSubmit}>
         <label htmlFor="reviewer">Name:</label>

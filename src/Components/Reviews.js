@@ -1,4 +1,3 @@
-
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -8,6 +7,7 @@ import ReviewForm from "./ReviewForm";
 const API = process.env.REACT_APP_API_URL;
 
 function Reviews() {
+  const [showAddReview, setShowAddReview] = useState(false);
   const [reviews, setReviews] = useState([]);
   const { id } = useParams();
 
@@ -17,6 +17,10 @@ function Reviews() {
       .then((response) => setReviews(response.data))
       .catch((error) => console.warn(error))
   }, [id])
+
+  const handleClick = () => {
+    setShowAddReview(!showAddReview);
+  };
 
   const handleAdd = (newReview) => {
     axios
@@ -59,12 +63,15 @@ function Reviews() {
 
   return (
     <div>
-      <section className="Reviews">
-        {/* <h2>Reviews</h2> */}
-        <ReviewForm handleAdd={handleAdd}>
-          <h5>Add a New Review</h5>
-        </ReviewForm>
-
+      <section className="Reviews" style={{ maxWidth: '500px', margin: '0 auto', paddingTop: '50px' }}>
+        <button onClick={handleClick}>
+          {showAddReview ? "Hide Form" : "Add New Review"}
+        </button>
+        {showAddReview && (
+          <ReviewForm handleAdd={handleAdd}>
+            <h5>Add a New Review</h5>
+          </ReviewForm>
+        )}
         {
           reviews.map((review) => {
             return <Review key={review.id}

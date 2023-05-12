@@ -2,8 +2,6 @@ import { useState } from "react";
 import ReviewForm from "./ReviewForm";
 import { ButtonGroup, Button, Card } from "react-bootstrap";
 
-const API = process.env.REACT_APP_API_URL;
-
 function Review({ review, handleDelete, handleEdit }) {
 
   const [viewEditForm, toggleEditForm] = useState(false);
