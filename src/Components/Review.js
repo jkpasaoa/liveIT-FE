@@ -2,9 +2,11 @@ import { useState } from "react";
 import ReviewForm from "./ReviewForm";
 import { ButtonGroup, Button, Card } from "react-bootstrap";
 
-function Review({ review, handleDelete, handleEdit }) {
-  const [viewEditForm, toggleEditForm] = useState(false);
+const API = process.env.REACT_APP_API_URL;
 
+function Review({ review, handleDelete, handleEdit }) {
+
+  const [viewEditForm, toggleEditForm] = useState(false);
   const toggleView = () => {
     toggleEditForm(!viewEditForm);
   }
@@ -14,7 +16,7 @@ function Review({ review, handleDelete, handleEdit }) {
       <h2>Reviews</h2>
       <Card >
         <Card.Body>
-          <button onClick={toggleView}>Edit this Review</button>
+          <button onClick={toggleView}>Edit this Review</button>˝
           {
             viewEditForm ? (
               <ReviewForm
