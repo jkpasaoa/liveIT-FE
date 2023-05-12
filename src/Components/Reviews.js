@@ -13,7 +13,7 @@ function Reviews() {
 
   useEffect(() => {
     axios
-      .get(`${API}/bookmarks/${id}/reviews`)
+      .get(`${API}/snacks/${id}/reviews`)
       .then((response) => setReviews(response.data))
       .catch((error) => console.warn(error))
   }, [id])
@@ -43,24 +43,24 @@ function Reviews() {
       .catch((c) => console.warn("catch", c))
   }
 
-  const handleEdit = (updatedReview) => {
-    axios
-      .put(`${API}/snacks/${id}/reviews/${updatedReview.id}`, updatedReview)
-      .then((response) => {
-        const copyReviewArray = [...reviews];
-        const indexUpdatedReview = copyReviewArray.findIndex((review) => {
-          return review.id === id;
-        })
-        copyReviewArray[indexUpdatedReview] = response.data;
-        setReviews(copyReviewArray)
-      })
-      .catch((c) => console.warn("catch", c))
-  }
+  // const handleEdit = (updatedReview) => {
+  //   axios
+  //     .put(`${API}/snacks/${id}/reviews/${updatedReview.id}`, updatedReview)
+  //     .then((response) => {
+  //       const copyReviewArray = [...reviews];
+  //       const indexUpdatedReview = copyReviewArray.findIndex((review) => {
+  //         return review.id === id;
+  //       })
+  //       copyReviewArray[indexUpdatedReview] = response.data;
+  //       setReviews(copyReviewArray)
+  //     })
+  //     .catch((c) => console.warn("catch", c))
+  // }
 
   return (
     <div>
       <section className="Reviews">
-        <h4>Reviews</h4>
+        {/* <h2>Reviews</h2> */}
         <ReviewForm handleAdd={handleAdd}>
           <h5>Add a New Review</h5>
         </ReviewForm>
