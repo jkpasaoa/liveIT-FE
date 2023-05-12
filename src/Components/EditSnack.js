@@ -1,19 +1,7 @@
-// import { Link } from "react-router-dom";
-
-// function EditSnack() {
-
-//   return (
-//     <div>
-
-//     </div>
-//   );
-// }
-
-// export default EditSnack;
-
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -63,54 +51,64 @@ function EditSnack() {
 
   return (
     <div className="Edit">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          id="name"
-          value={snack.name}
-          type="text"
-          onChange={handleTextChange}
-          placeholder="Name of snack"
-          required
-        />
-        <label htmlFor="calorie">Calorie:</label>
-        <input
-          id="calorie"
-          type="text"
-          value={snack.calorie}
-          placeholder="How Many Calories"
-          onChange={handleTextChange}
-        />
-        <label htmlFor="sugar">Sugar:</label>
-        <input
-          id="sugar"
-          type="text"
-          value={snack.sugar}
-          placeholder="How Much Sugar"
-          onChange={handleTextChange}
-        />
-        <label htmlFor="fat">Fat:</label>
-        <input
-          id="fat"
-          type="text"
-          value={snack.fat}
-          placeholder="Is this Fatty?"
-          onChange={handleTextChange}
-        />
-        <label htmlFor="is_healthy">Is This Healthy?:</label>
-        <input
-          id="is_healthy"
-          type="checkbox"
-          onChange={handleCheckboxChange}
-          checked={snack.is_healthy}
-        />
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="name">
+          <Form.Label>Name:</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Name of snack"
+            value={snack.name}
+            onChange={handleTextChange}
+            required
+          />
+        </Form.Group>
 
-        <br />
+        <Form.Group controlId="calorie">
+          <Form.Label>Calorie:</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="How Many Calories"
+            value={snack.calorie}
+            onChange={handleTextChange}
+          />
+        </Form.Group>
 
-        <input type="submit" />
-      </form>
+        <Form.Group controlId="sugar">
+          <Form.Label>Sugar:</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="How Much Sugar"
+            value={snack.sugar}
+            onChange={handleTextChange}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="fat">
+          <Form.Label>Fat:</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Is this Fatty?"
+            value={snack.fat}
+            onChange={handleTextChange}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="is_healthy">
+          <Form.Check
+            type="checkbox"
+            label="Is This Healthy?"
+            checked={snack.is_healthy}
+            onChange={handleCheckboxChange}
+          />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+
       <Link to={`/snacks/${id}`}>
-        <button>Nevermind!</button>
+        <Button variant="secondary">Nevermind!</Button>
       </Link>
     </div>
   );
