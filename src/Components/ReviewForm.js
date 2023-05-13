@@ -69,6 +69,7 @@ function ReviewForm(props) {
           step="1"
           value={review.rating}
           onChange={handleTextChange}
+          required
         />
         <label htmlFor="content">Review:</label>
         <textarea
@@ -78,6 +79,7 @@ function ReviewForm(props) {
           value={review.content}
           placeholder="What do you think..."
           onChange={handleTextChange}
+          required
         />
 
         <br />
