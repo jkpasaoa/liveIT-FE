@@ -6,7 +6,6 @@ import pursuitLogo from "../assets/pursuit.png";
 import gifcat from "../assets/gitcat.gif";
 
 const Footer = () => {
-  
   const gitHubTeamLinks = {
     christinaCephus: {
       github: "https://github.com/theCephusHasLanded",
@@ -17,7 +16,7 @@ const Footer = () => {
   };
 
   return (
-    <Container fluid className="bg-success py-3 foo">
+    <Container fluid className="bg-success py-3 foo text-center">
       <Row className="justify-content-center">
         <Col md={4} className="text-center text-md-start">
           <h4 className="mb-0">Developers:</h4>
@@ -28,7 +27,7 @@ const Footer = () => {
         <Col md={4} className="text-center text-md-end">
           <div className="d-flex justify-content-center justify-content-md-end">
             <div className="me-4">
-            <Link
+              <Link
                 to={gitHubTeamLinks.christinaCephus.github}
                 className="text-white"
                 style={{ fontFamily: "Funk Gibson" }}
@@ -50,22 +49,16 @@ const Footer = () => {
       </Row>
       <Row className="mt-4 justify-content-center">
         <Col md={2} className="text-center">
-            <h2>Copyright 2023</h2>
-            <br/>
+          <h2>Copyright 2023</h2>
         </Col>
         <Col md={2} className="text-center">
           <Link to="https://www.pursuit.org/" className="text-white">
-            This App Was Built in Pursuit
+            Built in
+            <img src={pursuitLogo} alt="Pursuit Logo" height="40" />
           </Link>
-          <br />
-          <img src={pursuitLogo} alt="Pursuit Logo" height="40" />
         </Col>
-       <br/>
-       <br/>
-       <br/>
-       <br/>
         <Col md={2} className="text-center">
-          <Link to="/">
+          <Link to="#">
             <img src={logo} alt="Logo" height="80" />
           </Link>
         </Col>
@@ -73,6 +66,12 @@ const Footer = () => {
           md={2}
           className="d-flex justify-content-center justify-content-md-end"
         >
+            <Link
+            to="https://trello.com/b/xvZFasjG/snackalog-pasaoa-cephus"
+            style={{ fontFamily: "Victor Mono", color: "chartreuse" }}
+          >
+            <h2>Checkout Our Trello!</h2>
+          </Link>
         </Col>
       </Row>
       <Row className="mt-4">
@@ -83,14 +82,9 @@ const Footer = () => {
                 <input
                   type="email"
                   className="form-control"
-                  placeholder="Enter email
-"
+                  placeholder="Enter email"
                 />
-                <button
-                  type="submit
-"
-                  className="btn btn-light"
-                >
+                <button type="submit" className="btn btn-light">
                   Sign Up
                 </button>
               </div>

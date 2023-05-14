@@ -65,7 +65,7 @@ function Reviews() {
   return (
     <div>
       <section className="Reviews text-center" style={{ maxWidth: '500px', margin: '0 auto', paddingTop: '50px' }}>
-        <Button onClick={handleClick} variant="primary" style={{ backgroundColor: '#4CAF50', color: 'black', fontFamily: 'Funk Gibson' }}>
+        <Button onClick={handleClick} variant="primary" style={{ backgroundColor: '#4CAF50', fontFamily: 'Funk Gibson' }}>
           {showAddReview ? "Hide Form" : "Add New Review"}
         </Button>
         {showAddReview && (
