@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { ButtonGroup, Button, Card } from "react-bootstrap";
+import Reviews from "./Reviews";
 import Cart from "../Components/Cart"
 
 const API = process.env.REACT_APP_API_URL;
@@ -93,9 +94,9 @@ function SnackDetails() {
           </Button>
         </Card.Body>
       </Card>
-
+      <Reviews />
       <Cart />
-    </div>
+    </div >
   );
 }
 
