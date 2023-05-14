@@ -53,7 +53,7 @@ function Reviews() {
       .then((response) => {
         const copyReviewArray = [...reviews];
         const indexUpdatedReview = copyReviewArray.findIndex((review) => {
-          return review.id === id;
+          return review.id === updatedReview.id;
         })
         copyReviewArray[indexUpdatedReview] = response.data;
         setReviews(copyReviewArray)

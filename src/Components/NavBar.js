@@ -15,7 +15,7 @@ function NavBar() {
         </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="ml-auto">
             <Nav.Link as={Link} to="/" className="mr-2">
               <Button variant="success" style={{ backgroundColor: "#4CAF50" }}>
                 Home
@@ -54,7 +54,10 @@ function NavBar() {
                 BE Repo
               </Button>
             </Nav.Link>
-          </Nav>
+              <Nav.Link as={Link} to="/snacks/new" className="mr-2">
+                <Button variant="success" style={{ backgroundColor: '#CDDC39' }}>Add New Snack</Button>
+              </Nav.Link>
+            </Nav>
         </Navbar.Collapse>
       </Navbar>
     </header>
