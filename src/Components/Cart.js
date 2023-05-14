@@ -1,27 +1,45 @@
 import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 
-function Cart() {
+function Cart({ snackName }) {
   const [cartItems, setCartItems] = useState([]);
 
-  const addToCart = (snack) => {
-    setCartItems((prevCartItems) => [...prevCartItems, snack]);
+  const addToCart = () => {
+    setCartItems((prevCartItems) => [...prevCartItems, snackName]);
+  };
+
+  const deleteFromCart = () => {
+    setCartItems((prevCartItems) => prevCartItems.filter((snack) => snack !== snackName));
   };
 
   return (
-    <div>
-      <h2>Shopping Cart</h2>
+    <div className="cart-container">
+      <h2>Shopping List</h2>
       {cartItems.length === 0 ? (
-        <p>No items in the cart</p>
+        <p>No items on your List</p>
       ) : (
         <ul>
           {cartItems.map((snack, index) => (
-            <li key={index}>{snack.name}</li>
+            <li key={index}>{snack}</li>
           ))}
         </ul>
       )}
-      <button onClick={() => addToCart({ name: "Snack 1" })}>Add Snack 1</button>
-      <button onClick={() => addToCart({ name: "Snack 2" })}>Add Snack 2</button>
-      <button onClick={() => addToCart({ name: "Snack 3" })}>Add Snack 3</button>
+      <Button
+        onClick={addToCart}
+        variant="success"
+        className="cart-button"
+        style={{ backgroundColor: "#4CAF50", color: "white", fontFamily: "Funk Gibson" }}
+      >
+        Add This Snack
+      </Button>
+      <Button
+        onClick={deleteFromCart}
+        variant="danger"
+        className="cart-button"
+        style={{ backgroundColor: "black", color: "white", fontFamily: "Funk Gibson" }}
+      >
+        Delete This Snack
+      </Button>
     </div>
   );
 }

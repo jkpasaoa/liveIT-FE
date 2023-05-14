@@ -31,11 +31,6 @@ function NavBar() {
                 Snacks
               </Button>
             </Nav.Link>
-            <Nav.Link as={Link} to="/snacks/new" className="mr-2">
-              <Button variant="success" style={{ backgroundColor: "#FFEB3B" }}>
-                Add Snack
-              </Button>
-            </Nav.Link>
             <Nav.Link
               href="https://github.com/jkpasaoa/liveIT-FE"
               target="_blank"
@@ -54,10 +49,14 @@ function NavBar() {
                 BE Repo
               </Button>
             </Nav.Link>
-              <Nav.Link as={Link} to="/snacks/new" className="mr-2">
-                <Button variant="success" style={{ backgroundColor: '#CDDC39' }}>Add New Snack</Button>
+            <div className="ml-2">
+              <Nav.Link as={Link} to="/snacks/new">
+                <Button variant="success" style={{ backgroundColor: "#CDDC39" }}>
+                  Add New Snack
+                </Button>
               </Nav.Link>
-            </Nav>
+            </div>
+          </Nav>
         </Navbar.Collapse>
       </Navbar>
     </header>

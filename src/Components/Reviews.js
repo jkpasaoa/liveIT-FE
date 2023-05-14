@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Review from "./Review";
 import ReviewForm from "./ReviewForm";
+import { Button } from "react-bootstrap";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -63,10 +64,10 @@ function Reviews() {
 
   return (
     <div>
-      <section className="Reviews" style={{ maxWidth: '500px', margin: '0 auto', paddingTop: '50px' }}>
-        <button onClick={handleClick}>
+      <section className="Reviews text-center" style={{ maxWidth: '500px', margin: '0 auto', paddingTop: '50px' }}>
+        <Button onClick={handleClick} variant="primary" style={{ backgroundColor: '#4CAF50', color: 'black', fontFamily: 'Funk Gibson' }}>
           {showAddReview ? "Hide Form" : "Add New Review"}
-        </button>
+        </Button>
         {showAddReview && (
           <ReviewForm handleAdd={handleAdd}>
             <h5>Add a New Review</h5>

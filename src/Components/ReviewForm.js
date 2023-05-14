@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
 
 function ReviewForm(props) {
   const { id } = useParams();
@@ -39,68 +40,63 @@ function ReviewForm(props) {
   }
 
   return (
-    <div className="Edit" style={{ maxWidth: '500px', margin: '0 auto', paddingTop: '50px' }}>
+    <div className="Edit text-center" style={{ maxWidth: '500px', margin: '0 auto', paddingTop: '50px' }}>
       {props.children}
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="reviewer">Name:</label>
-          <input
-            id="reviewer"
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="reviewer">
+          <Form.Label>Name:</Form.Label>
+          <Form.Control
             value={review.reviewer}
             type="text"
             onChange={handleTextChange}
-            placeholder="Your name"
-            className="form-control"
+            placeholder="Your Name"
             required
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="title">Title:</label>
-          <input
-            id="title"
+        </Form.Group>
+        <Form.Group controlId="title">
+          <Form.Label>Title:</Form.Label>
+          <Form.Control
             type="text"
             required
             value={review.title}
+            placeholder="Review Title"
             onChange={handleTextChange}
-            className="form-control"
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="rating">Rating:</label>
-          <input
-            id="rating"
+        </Form.Group>
+        <Form.Group controlId="rating">
+          <Form.Label>Rating:</Form.Label>
+          <Form.Control
             type="number"
             name="rating"
             min="0"
             max="5"
             step="1"
             value={review.rating}
+            placeholder="Whats The Rating?"
             onChange={handleTextChange}
-            className="form-control"
             required
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="content">Review:</label>
-          <textarea
-            id="content"
-            type="text"
+        </Form.Group>
+        <Form.Group controlId="content">
+          <Form.Label>Review:</Form.Label>
+          <Form.Control
+            as="textarea"
             name="content"
             value={review.content}
-            placeholder="What do you think..."
+            placeholder="So What Did You Think..."
             onChange={handleTextChange}
-            className="form-control"
             required
           />
-        </div>
+        </Form.Group>
 
         <br />
 
-        <input type="submit" className="btn btn-primary" />
-      </form>
+        <Button type="submit" variant="primary" style={{ backgroundColor: '#4CAF50', fontFamily: 'Funk Gibson' }}>
+          Submit
+        </Button>
+      </Form>
     </div>
   );
 }
 
 export default ReviewForm;
-

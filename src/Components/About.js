@@ -1,4 +1,9 @@
+import React from "react";
 // import { Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Image } from "react-bootstrap";
+import pasaoaAvatar from "../assets/pasaoa.jpeg";
+import cephusAvatar from "../assets/cephus.jpeg";
 
 function About() {
   return (
@@ -22,6 +27,29 @@ function About() {
           <br />
           Let's LiveIt to the Fullest! 🧋
         </p>
+        <h3>Follow Us on LinkedIn!</h3>
+        <div className="d-flex justify-content-center">
+          <div className="mr-4">
+            <a href="https://www.linkedin.com/in/jacquelinepasaoa/" target="_blank" rel="noopener noreferrer">
+              <Image src={pasaoaAvatar} alt="Jacqueline Pasaoa" roundedCircle width="150" />
+            </a>
+            <p className="mt-2">
+              <a href="https://www.linkedin.com/in/jacquelinepasaoa/" target="_blank" rel="noopener noreferrer">
+                Jacqueline Pasaoa
+              </a>
+            </p>
+          </div>
+          <div>
+            <a href="https://www.linkedin.com/in/thecephus/" target="_blank" rel="noopener noreferrer">
+              <Image src={cephusAvatar} alt="The Cephus" roundedCircle width="150" />
+            </a>
+            <p className="mt-2">
+              <a href="https://www.linkedin.com/in/thecephus/" target="_blank" rel="noopener noreferrer">
+                The Cephus
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

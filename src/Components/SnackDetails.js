@@ -95,7 +95,7 @@ function SnackDetails() {
         </Card.Body>
       </Card>
       <Reviews />
-      <Cart />
+      <Cart snackName={snack.name} />
     </div >
   );
 }
