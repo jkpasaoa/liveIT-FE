@@ -20,14 +20,13 @@ function EditSnack() {
   const updateSnack = (updatedSnack) => {
     axios
       .put(`${API}/snacks/${id}`, updatedSnack)
-      .then(
-        () => {
-          navigate(`/snacks/${id}`);
-        },
-        (error) => console.error(error)
-      )
-      .catch((c) => console.warn("catch", c));
-  };
+      .then(() => {
+        navigate(`/snacks/${id}`);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };  
 
   const handleTextChange = (event) => {
     setSnack({ ...snack, [event.target.id]: event.target.value });
@@ -46,11 +45,13 @@ function EditSnack() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateSnack(snack, id);
+    updateSnack(snack);
   };
+  
 
   return (
-    <div className="Edit">
+    <div className="New" style={{ textAlign: "center", maxWidth: "500px", margin: "0 auto" }}>
+      <h2>Edit Snack</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="name">
           <Form.Label>Name:</Form.Label>
@@ -102,13 +103,13 @@ function EditSnack() {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" style={{ backgroundColor: "#8BC34A" }}>
           Submit
         </Button>
       </Form>
 
       <Link to={`/snacks/${id}`}>
-        <Button variant="secondary">Nevermind!</Button>
+        <Button variant="danger">Cancel</Button>
       </Link>
     </div>
   );
