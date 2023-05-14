@@ -88,10 +88,6 @@ function SnackDetails() {
               🗑️
             </Button>
           </ButtonGroup>
-
-          <Button onClick={addToCart} style={{ backgroundColor: "chartreuse" }}>
-            🛒
-          </Button>
         </Card.Body>
       </Card>
       <Reviews />

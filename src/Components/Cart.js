@@ -30,7 +30,7 @@ function Cart({ snackName }) {
         className="cart-button"
         style={{ backgroundColor: "#4CAF50", color: "white", fontFamily: "Funk Gibson" }}
       >
-        Add This Snack
+        Add Snack 🛒
       </Button>
       <Button
         onClick={deleteFromCart}
@@ -38,7 +38,7 @@ function Cart({ snackName }) {
         className="cart-button"
         style={{ backgroundColor: "black", color: "white", fontFamily: "Funk Gibson" }}
       >
-        Delete This Snack
+        Trash Snack 🗑️
       </Button>
     </div>
   );
