@@ -51,46 +51,46 @@ function NewSnack() {
   };
 
   return (
-    <div className="New">
+    <div className="New" style={{ textAlign: "center", maxWidth: "500px", margin: "0 auto" }}>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="name">
           <Form.Label>Title:</Form.Label>
           <Form.Control
             type="text"
             value={snack.name}
-            placeholder="snack Title"
+            placeholder="What is This Snack?"
             onChange={handleTextChange}
             required
           />
         </Form.Group>
 
         <Form.Group controlId="calorie">
-          <Form.Label>calorie:</Form.Label>
+          <Form.Label>Calorie:</Form.Label>
           <Form.Control
             type="text"
             value={snack.calorie}
-            placeholder="calorie Name"
+            placeholder="How Many Calories?"
             onChange={handleTextChange}
             required
           />
         </Form.Group>
 
         <Form.Group controlId="sugar">
-          <Form.Label>Album:</Form.Label>
+          <Form.Label>Sugar:</Form.Label>
           <Form.Control
             type="text"
             value={snack.sugar}
-            placeholder="Album Name"
+            placeholder="How Much Sugar?"
             onChange={handleTextChange}
           />
         </Form.Group>
 
         <Form.Group controlId="fat">
-          <Form.Label>Time:</Form.Label>
+          <Form.Label>Fat:</Form.Label>
           <Form.Control
             type="text"
             value={snack.fat}
-            placeholder="snack Duration"
+            placeholder="How Much Fat?"
             onChange={handleTextChange}
           />
         </Form.Group>
@@ -98,13 +98,13 @@ function NewSnack() {
         <Form.Group controlId="is_healthy">
           <Form.Check
             type="checkbox"
-            label="Favorite"
+            label="Is This Healthy?"
             checked={snack.is_healthy}
             onChange={handleCheckboxChange}
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" style={{ backgroundColor: "#8BC34A" }}>
           Submit
         </Button>
       </Form>
