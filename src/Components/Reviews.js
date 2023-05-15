@@ -50,7 +50,7 @@ function Reviews() {
 
   const handleEdit = (updatedReview) => {
     axios
-      .put(`${API}/snacks/${id}/reviews/${updatedReview.id}`, updatedReview)
+      .put(`${API}/reviews/${updatedReview.id}`, updatedReview)
       .then((response) => {
         const copyReviewArray = [...reviews];
         const indexUpdatedReview = copyReviewArray.findIndex((review) => {
