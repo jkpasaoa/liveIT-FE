@@ -39,3 +39,20 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css */
+.App.dark-mode {
+  background-color: #0b3d0b; /* Very dark sage green */
+  color: #f1f1f1;
+}
+
+.App.light-mode {
+  background-color: #b8e0b6; /* Very light sage green */
+  color: #1c1c1c;
+}
+
+/* Add any other styles for dark mode and light mode here */
+
+/* Add any other styles for dark mode here */
+
+
