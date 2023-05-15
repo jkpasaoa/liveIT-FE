@@ -1,11 +1,13 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
+import ThemeContext from "../Components/ThemeContext";
 
 const API = process.env.REACT_APP_API_URL;
 
 function EditSnack() {
+  const { darkMode } = useContext(ThemeContext);
   let { id } = useParams();
   let navigate = useNavigate();
 
@@ -26,7 +28,7 @@ function EditSnack() {
       .catch((error) => {
         console.error(error);
       });
-  };  
+  };
 
   const handleTextChange = (event) => {
     setSnack({ ...snack, [event.target.id]: event.target.value });
@@ -47,10 +49,16 @@ function EditSnack() {
     event.preventDefault();
     updateSnack(snack);
   };
-  
+
+  const themeMode = darkMode ? "dark" : "light";
+  const buttonColor = darkMode ? "#333" : "#8BC34A";
+  const buttonTextColor = darkMode ? "#FFF" : "#000";
 
   return (
-    <div className="New" style={{ textAlign: "center", maxWidth: "500px", margin: "0 auto" }}>
+    <div
+      className={`New ${themeMode}`}
+      style={{ textAlign: "center", maxWidth: "500px", margin: "0 auto" }}
+    >
       <h2>Edit Snack</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="name">
@@ -103,7 +111,11 @@ function EditSnack() {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" style={{ backgroundColor: "#8BC34A" }}>
+        <Button
+          variant="primary"
+          type="submit"
+          style={{ backgroundColor: buttonColor, color: buttonTextColor }}
+        >
           Submit
         </Button>
       </Form>
@@ -116,3 +128,5 @@ function EditSnack() {
 }
 
 export default EditSnack;
+
+

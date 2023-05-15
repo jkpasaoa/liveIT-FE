@@ -1,14 +1,15 @@
-import React from "react";
-import ThemeContext from './ThemeContext';
-// import { Link } from "react-router-dom";
+import React, { useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Image } from "react-bootstrap";
 import pasaoaAvatar from "../assets/pasaoa.jpeg";
 import cephusAvatar from "../assets/cephus.jpeg";
+import ThemeContext from '../Components/ThemeContext';
 
 function About() {
+  const { darkMode } = useContext(ThemeContext);
+
   return (
-    <div>
+    <div style={{ color: darkMode ? 'white' : 'black', backgroundColor: darkMode ? '#333' : 'white' }}>
       <div className="text-center">
         <p>
           Welcome to LiveIt! We're Christina and Jacqueline, two passionate
@@ -44,7 +45,7 @@ function About() {
           <br />
           <br />
           Let's LiveIt to the Fullest! 🧋
-        </p>
+          </p>
         <br />
         <br />
         <br />

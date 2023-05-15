@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Review from "./Review";
 import ReviewForm from "./ReviewForm";
 import { Button } from "react-bootstrap";
@@ -11,10 +11,11 @@ function Reviews() {
   const [showAddReview, setShowAddReview] = useState(false);
   const [reviews, setReviews] = useState([]);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get(`${API}/snacks/${id}/reviews`)
+      .get(`${API}/reviews/snack/${id}`)
       .then((response) => setReviews(response.data))
       .catch((error) => console.warn(error))
   }, [id])
@@ -25,7 +26,7 @@ function Reviews() {
 
   const handleAdd = (newReview) => {
     axios
-      .post(`${API}/snacks/${id}/reviews`, newReview)
+      .post(`${API}/reviews/add/snack/${id}`, newReview)
       .then((response) => {
         setReviews([response.data, ...reviews]);
       }, (error) => console.error(error))
@@ -34,7 +35,7 @@ function Reviews() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`${API}/snacks/${id}/reviews/${id}`)
+      .delete(`${API}/reviews/delete/${id}`)
       .then((response) => {
         const copyReviewArray = [...reviews];
         const indexDeletedReview = copyReviewArray.findIndex((review) => {
@@ -50,14 +51,16 @@ function Reviews() {
 
   const handleEdit = (updatedReview) => {
     axios
-      .put(`${API}/snacks/${id}/reviews/${updatedReview.id}`, updatedReview)
+      .put(`${API}/reviews/${updatedReview.id}`, updatedReview)
       .then((response) => {
-        const copyReviewArray = [...reviews];
-        const indexUpdatedReview = copyReviewArray.findIndex((review) => {
+        const newReview = response.data;
+        const reviewsCopy = [...reviews];
+        const updatedReviewIndex = reviewsCopy.findIndex((review) => {
           return review.id === updatedReview.id;
         })
-        copyReviewArray[indexUpdatedReview] = response.data;
-        setReviews(copyReviewArray)
+        reviewsCopy.splice(updatedReviewIndex, 1, newReview);
+        setReviews(reviewsCopy);
+        navigate(0);
       })
       .catch((c) => console.warn("catch", c))
   }
