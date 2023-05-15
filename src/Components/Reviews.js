@@ -14,7 +14,7 @@ function Reviews() {
 
   useEffect(() => {
     axios
-      .get(`${API}/snacks/${id}/reviews`)
+      .get(`${API}/reviews/snack/${id}`)
       .then((response) => setReviews(response.data))
       .catch((error) => console.warn(error))
   }, [id])
