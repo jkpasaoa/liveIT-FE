@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Review from "./Review";
 import ReviewForm from "./ReviewForm";
 import { Button } from "react-bootstrap";
@@ -11,6 +11,7 @@ function Reviews() {
   const [showAddReview, setShowAddReview] = useState(false);
   const [reviews, setReviews] = useState([]);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -52,12 +53,14 @@ function Reviews() {
     axios
       .put(`${API}/reviews/${updatedReview.id}`, updatedReview)
       .then((response) => {
-        const copyReviewArray = [...reviews];
-        const indexUpdatedReview = copyReviewArray.findIndex((review) => {
+        const newReview = response.data;
+        const reviewsCopy = [...reviews];
+        const updatedReviewIndex = reviewsCopy.findIndex((review) => {
           return review.id === updatedReview.id;
         })
-        copyReviewArray[indexUpdatedReview] = response.data;
-        setReviews(copyReviewArray)
+        reviewsCopy.splice(updatedReviewIndex, 1, newReview);
+        setReviews(reviewsCopy);
+        navigate(0);
       })
       .catch((c) => console.warn("catch", c))
   }
