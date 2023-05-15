@@ -26,9 +26,11 @@ function ReviewForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.handleEdit(review, id);
-    if (reviewDetails) {
-      props.toggleView();
+
+    if (props.handleAdd) {
+      props.handleAdd(review);
+    } else if (props.handleEdit) {
+      props.handleEdit(review);
     }
     setReview({
       reviewer: "",

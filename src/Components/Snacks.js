@@ -15,11 +15,17 @@ function Snacks() {
       .catch((error) => console.warn("catch", error));
   }, []);
 
+  const containerStyle = {
+    height: "calc(100vh - 200px)", // Adjust the height as needed
+    overflow: "auto",
+  };
+
   const tableStyle = {
     background: "#E7F0C3",
     border: "none",
     borderRadius: "10px",
     boxShadow: "5px 5px 10px #BFBFBF",
+    marginBottom: "20px", // Add spacing between cards
   };
 
   const tableHeaderStyle = {
@@ -36,25 +42,23 @@ function Snacks() {
   };
 
   return (
-    <div className="Snacks d-flex justify-content-center align-items-center">
-      <section>
-        <Table style={tableStyle} responsive>
-          <thead>
-            <tr>
-              <th colSpan="2" style={tableHeaderStyle}>
-                <Button variant="success" style={buttonStyle}>
-                  Take Me to the Snacks!
-                </Button>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {snacks.map((snack) => {
-              return <Snack key={snack.id} snack={snack} />;
-            })}
-          </tbody>
-        </Table>
-      </section>
+    <div className="Snacks d-flex flex-column align-items-center" style={containerStyle}>
+      <Table style={tableStyle} responsive>
+        <thead>
+          <tr>
+            <th colSpan="2" style={tableHeaderStyle}>
+              <Button variant="success" style={buttonStyle}>
+                Take Me to the Snacks!
+              </Button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {snacks.map((snack) => {
+            return <Snack key={snack.id} snack={snack} />;
+          })}
+        </tbody>
+      </Table>
     </div>
   );
 }

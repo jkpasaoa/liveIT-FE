@@ -40,10 +40,10 @@ function SnackDetails() {
     deletesnack();
   };
 
-  const addToCart = () => {
-    // Implement the logic to add the snack to the shopping cart
-    // You can use the snack object to pass the necessary data to the shopping cart
-  };
+  // const addToCart = () => {
+  //   // Implement the logic to add the snack to the shopping cart
+  //   // You can use the snack object to pass the necessary data to the shopping cart
+  // };
 
   return (
     <div>
@@ -88,10 +88,6 @@ function SnackDetails() {
               🗑️
             </Button>
           </ButtonGroup>
-
-          <Button onClick={addToCart} style={{ backgroundColor: "chartreuse" }}>
-            🛒
-          </Button>
         </Card.Body>
       </Card>
       <Reviews />
