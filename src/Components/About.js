@@ -1,4 +1,5 @@
 import React from "react";
+import ThemeContext from './ThemeContext';
 // import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Image } from "react-bootstrap";
