@@ -35,7 +35,7 @@ function Reviews() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`${API}/snacks/${id}/reviews/${id}`)
+      .delete(`${API}/reviews/delete/${id}`)
       .then((response) => {
         const copyReviewArray = [...reviews];
         const indexDeletedReview = copyReviewArray.findIndex((review) => {
