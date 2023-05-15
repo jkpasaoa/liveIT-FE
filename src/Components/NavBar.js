@@ -1,12 +1,18 @@
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import logo from "../assets/snack.png";
+import ThemeContext from "./ThemeContext";
 
 function NavBar() {
+  const { darkMode, toggleDarkMode } = useContext(ThemeContext);
+
+  const themeMode = darkMode ? "dark" : "light";
+
   return (
     <header>
-      <Navbar bg="light" expand="lg" style={{ fontFamily: "Funk Gibson" }}>
+      <Navbar bg={themeMode} expand="lg" style={{ fontFamily: "Funk Gibson" }}>
         <div className="logo">
           <Navbar.Brand as={Link} to="/">
             <img src={logo} alt="Logo" height="40" />
@@ -17,17 +23,26 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link as={Link} to="/" className="mr-2">
-              <Button variant="success" style={{ backgroundColor: "#4CAF50" }}>
+              <Button
+                variant={themeMode === "light" ? "success" : "dark"}
+                style={{ backgroundColor: themeMode === "light" ? "#4CAF50" : "#333" }}
+              >
                 Home
               </Button>
             </Nav.Link>
             <Nav.Link as={Link} to="/about" className="mr-2">
-              <Button variant="success" style={{ backgroundColor: "#8BC34A" }}>
+              <Button
+                variant={themeMode === "light" ? "success" : "dark"}
+                style={{ backgroundColor: themeMode === "light" ? "#8BC34A" : "#333" }}
+              >
                 About
               </Button>
             </Nav.Link>
             <Nav.Link as={Link} to="/snacks" className="mr-2">
-              <Button variant="success" style={{ backgroundColor: "#CDDC39" }}>
+              <Button
+                variant={themeMode === "light" ? "success" : "dark"}
+                style={{ backgroundColor: themeMode === "light" ? "#CDDC39" : "#333" }}
+              >
                 Snacks
               </Button>
             </Nav.Link>
@@ -36,7 +51,10 @@ function NavBar() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="success" style={{ backgroundColor: "#FFEB3B" }}>
+              <Button
+                variant={themeMode === "light" ? "success" : "dark"}
+                style={{ backgroundColor: themeMode === "light" ? "#FFEB3B" : "#333" }}
+              >
                 FE Repo
               </Button>
             </Nav.Link>
@@ -45,16 +63,30 @@ function NavBar() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="success" style={{ backgroundColor: "#FFC107" }}>
+              <Button
+                variant={themeMode === "light" ? "success" : "dark"}
+                style={{ backgroundColor: themeMode === "light" ? "#FFC107" : "#333" }}
+              >
                 BE Repo
               </Button>
             </Nav.Link>
             <div className="ml-2">
               <Nav.Link as={Link} to="/snacks/new">
-                <Button variant="success" style={{ backgroundColor: "#CDDC39" }}>
+                <Button
+                  variant={themeMode === "light" ? "success" : "dark"}
+                  style={{ backgroundColor: themeMode === "light" ? "#CDDC39" : "#333" }}
+                >
                   Add New Snack
                 </Button>
               </Nav.Link>
+              <div className="ml-2">
+                <Button
+                  variant={themeMode === "light" ? "outline-secondary" : "outline-light"}
+                  onClick={toggleDarkMode}
+                >
+                  {themeMode === "light" ? "Dark Mode" : "Light Mode"}
+                </Button>
+              </div>
             </div>
           </Nav>
         </Navbar.Collapse>

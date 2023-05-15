@@ -96,8 +96,9 @@ function NewSnack() {
         </Form.Group>
 
         <Form.Group controlId="is_healthy">
-          <Form.Check
+        <Form.Check
             type="checkbox"
+            inline  // Add the inline prop
             label="Is This Healthy?"
             checked={snack.is_healthy}
             onChange={handleCheckboxChange}

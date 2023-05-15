@@ -1,11 +1,13 @@
+import React from "react";
+import { Container } from "react-bootstrap";
 import SnackDetails from "../Components/SnackDetails";
 
 function Show() {
   return (
-    <div className="Show">
+    <Container className="Show text-center">
       <h2>Learn More</h2>
       <SnackDetails />
-    </div>
+    </Container>
   );
 }
 

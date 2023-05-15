@@ -16,7 +16,7 @@ function Snacks() {
   }, []);
 
   const containerStyle = {
-    height: "calc(100vh - 200px)", // Adjust the height as needed
+    height: "calc(80vh - 200px)", // Adjust the height as needed
     overflow: "auto",
   };
 
