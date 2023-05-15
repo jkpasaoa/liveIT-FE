@@ -25,7 +25,7 @@ function Reviews() {
 
   const handleAdd = (newReview) => {
     axios
-      .post(`${API}/snacks/${id}/reviews`, newReview)
+      .post(`${API}/reviews/add/snack/${id}`, newReview)
       .then((response) => {
         setReviews([response.data, ...reviews]);
       }, (error) => console.error(error))
