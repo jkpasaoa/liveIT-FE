@@ -4,6 +4,7 @@ This is LiveIt! This web application allows users to view and compare the nutrit
 
 ### Webpage Deployed!
 https://live-it-fe.netlify.app/about
+https://live-it-be.onrender.com/
 
 ## Authors
 
