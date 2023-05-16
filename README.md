@@ -2,6 +2,9 @@
 
 This is LiveIt! This web application allows users to view and compare the nutritional value of various snacks. Users can see the amount of sugars, fats, and calories in each snack, as well as read reviews from other users. They can also add snacks to a shopping cart to calculate the total calories of their selected items.
 
+### Webpage Deployed!
+https://live-it-fe.netlify.app/about
+
 ## Authors
 
 - Christina Cephus
