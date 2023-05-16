@@ -22,8 +22,8 @@ This is LiveIt! This web application allows users to view and compare the nutrit
 
 - [Front-end GitHub Repo](https://github.com/jkpasaoa/liveIT-FE)
 - [Back-end GitHub Repo](https://github.com/theCephusHasLanded/liveIT-BE)
-- [Deployed Front-end URL] In Progress
-- [Deployed Back-end URL] In Progress
+- [Deployed Front-end URL] (https://live-it-fe.netlify.app)
+- [Deployed Back-end URL] (https://live-it-be.onrender.com)
 - [Trello Board](https://trello.com/b/xvZFasjG/snackalog-pasaoa-cephus)
 
 ## Instructions
