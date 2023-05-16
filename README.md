@@ -1,4 +1,45 @@
-# Getting Started with Create React App
+# LiveIt! A Snack Tracker App
+
+This is LiveIt! This web application allows users to view and compare the nutritional value of various snacks. Users can see the amount of sugars, fats, and calories in each snack, as well as read reviews from other users. They can also add snacks to a shopping cart to calculate the total calories of their selected items.
+
+## Authors
+
+- Christina Cephus
+- Jacqueline Pasaoa
+
+## Tech Stack
+
+- React
+- JavaScript
+- CSS
+- HTML
+- Bootstrap
+- Node.js
+- Express
+- SQL
+
+## Links
+
+- [Front-end GitHub Repo](https://github.com/jkpasaoa/liveIT-FE)
+- [Back-end GitHub Repo](https://github.com/theCephusHasLanded/liveIT-BE)
+- [Deployed Front-end URL] (https://live-it-fe.netlify.app)
+- [Deployed Back-end URL] (https://live-it-be.onrender.com)
+- [Trello Board](https://trello.com/b/xvZFasjG/snackalog-pasaoa-cephus)
+
+## Instructions
+
+To run this application on your local machine, follow these steps:
+
+1. Clone the front-end GitHub repo and navigate to the project directory.
+2. Install the dependencies with `npm install`.
+3. Start the development server with `npm start`.
+4. Clone the back-end GitHub repo and navigate to the project directory.
+5. Install the dependencies with `npm install`.
+6. Start the server with `npm start`.
+7. Open your web browser and navigate to `http://localhost:7777`.
+
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,4 +109,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# liveIT-FE
+# liveIT-FE -->

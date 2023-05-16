@@ -1,13 +1,41 @@
+.lighter-dark-mode {
+  background-color: #1c1c1c;
+  color: #f2f2f2;
+}
+
+/* .navbar-nav {
+  display: flex;
+}
+
+.navbar-nav .nav-link:last-child {
+  margin-right: 20px;
+} */
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Victor Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Victor Mono', monospace;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid yellowchartreuse;
+  padding: 10px;
+}
+
+.cart-button {
+  margin: 5px;
+}
+
